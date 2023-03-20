@@ -14,3 +14,6 @@ https://pt.stackoverflow.com/questions/220078/o-que-significa-o-erro-execu%C3%A7
 https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
 
 session not created: This version of ChromeDriver only supports Chrome version 83
+
+**Documentação do xpath**
+https://www.w3schools.com/xml/xpath_intro.asp
