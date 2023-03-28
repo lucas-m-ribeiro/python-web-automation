@@ -1,33 +1,34 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-import conftest
 import pytest
-
+from pages.login_page import LoginPage
+from pages.home_page import HomePage
+from pages.cart_page import CartPage
+import time
 @pytest.mark.usefixtures("setup_teardown")
 @pytest.mark.add_product
 class TestCT01:
 
     def test_CT01_Add_products_cart(self):
 
-        driver = conftest.driver
+        produto_1 = "Sauce Labs Backpack"
+        produto_2 = "Sauce Labs Bike Light"
         
-        #fazendo login
-        driver.find_element(By.ID, "user-name").send_keys("standard_user")
-        driver.find_element(By.ID, "password").send_keys("secret_sauce")
-        driver.find_element(By.ID, "login-button").click()
+        #Arrane
+        login_page = LoginPage()
+        home_page = HomePage()
+        cart_page = CartPage()
+        login_page.login("standard_user", "secret_sauce")
 
-        #adicionando primeiro produto no carrinho
-        driver.find_element(By.XPATH, "//*[@class='inventory_item_name' and text()='Sauce Labs Backpack']").click()
-        driver.find_element(By.XPATH, "//*[text()='Add to cart']").click()
-        driver.find_element(By.XPATH, "//*[@class='shopping_cart_link']").click()
-        assert driver.find_element(By.XPATH, "//*[@class='inventory_item_name' and text()='Sauce Labs Backpack']").is_displayed(), "Primeiro produto adicionado com sucesso"
+        # ACT
+        # adicionando primeiro produto no carrinho
+        home_page.add_in_cart(produto_1)
+        home_page.acess_cart()
+        cart_page.verify_product_in_cart(produto_1)
 
-        #adicionando segundo produto no carrinho
-        driver.find_element(By.ID, "continue-shopping").click()
-        driver.find_element(By.XPATH, "//*[@class='inventory_item_name' and text()='Sauce Labs Bike Light']").click()
-        driver.find_element(By.XPATH, "//*[text()='Add to cart']").click()
+        # #adicionando segundo produto no carrinho
+        cart_page.click_button_continue_shopping()
+        home_page.add_in_cart(produto_2)
+        home_page.acess_cart()
 
-        #verificando os dois produtos no carrinho
-        driver.find_element(By.XPATH, "//*[@class='shopping_cart_link']").click()
-        assert driver.find_element(By.XPATH, "//*[@class='inventory_item_name' and text()='Sauce Labs Backpack']").is_displayed(), "Primeiro produto adicionado com sucesso"
-        assert driver.find_element(By.XPATH, "//*[@class='inventory_item_name' and text()='Sauce Labs Bike Light']").is_displayed(), "Segundo produto adicionado com sucesso"
+        # Assert
+        cart_page.verify_product_in_cart(produto_1)
+        cart_page.verify_product_in_cart(produto_2)
