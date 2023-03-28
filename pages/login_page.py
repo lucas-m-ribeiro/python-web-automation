@@ -16,5 +16,9 @@ class LoginPage(BasePage):
         self.send_keys(self.password_field, senha)
         self.click(self.login_button)  
 
-    def verify_error_message(self):
+    def verify_error_exist(self):
         self.verify_elements_exists(self.error_message_login)
+
+    def verify_error_message_text(self, text_esperado):
+        texto_encontrado = self.get_text_element(self.error_message_login)
+        assert texto_encontrado == text_esperado, f"O texto retornado foi: '{texto_encontrado}', mas era esperado o texto '{text_esperado}'"
