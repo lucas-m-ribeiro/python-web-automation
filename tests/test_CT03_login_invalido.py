@@ -2,7 +2,7 @@ import pytest
 from pages.login_page import LoginPage
 
 @pytest.mark.usefixtures("setup_teardown")
-@pytest.mark.login_invalido
+@pytest.mark.login
 class Test_CT03:
 
     def test_CT03_login_invalido(self):
