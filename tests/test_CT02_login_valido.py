@@ -7,10 +7,11 @@ from pages.home_page import HomePage
 class Test_CT02:
 
     def test_CT02_login_valido(self):
+        # Arrange
         login_page = LoginPage()
         page = HomePage()
 
-        # act
+        # Act
         login_page.login("standard_user", "secret_sauce")
         
         # Assert
