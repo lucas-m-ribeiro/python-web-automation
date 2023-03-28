@@ -1,0 +1,17 @@
+import conftest
+from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
+
+class CartPage(BasePage):
+
+    def __init__(self):
+        self.driver = conftest.driver
+        self.item_inventario = (By.XPATH, "//*[@class='inventory_item_name' and text()='{}']")
+        self.button_continue_shopping = (By.ID, "continue-shopping")
+
+    def verify_product_in_cart(self, item_name):
+        item = (self.item_inventario[0], self.item_inventario[1].format(item_name))
+        self.verify_elements_exists(item)
+
+    def click_button_continue_shopping(self):
+        self.click(self.button_continue_shopping)
