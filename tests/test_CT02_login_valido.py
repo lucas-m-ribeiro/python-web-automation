@@ -1,18 +1,19 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 import conftest
 import pytest
+from pages.login_page import LoginPage
 
 @pytest.mark.usefixtures("setup_teardown")
 @pytest.mark.login
 class Test_CT02:
 
     def test_CT02_login_valido(self):
-
+        # arrange
         driver = conftest.driver
+        login_page = LoginPage()
 
-        driver.find_element(By.ID, "user-name").send_keys("standard_user")
-        driver.find_element(By.ID, "password").send_keys("secret_sauce")
-        driver.find_element(By.ID, "login-button").click()
+        # act
+        login_page.fazer_login("standard_user", "secret_sauce")
+        
+        # Assert
         assert driver.find_element(By.XPATH, "//span[@class='title']").is_displayed()
