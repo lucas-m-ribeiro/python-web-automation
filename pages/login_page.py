@@ -10,7 +10,7 @@ class LoginPage(BasePage):
         self.password_field = (By.ID, "password")
         self.login_button = (By.ID, "login-button")
     
-    def fazer_login(self, usuario, senha):
+    def login(self, usuario, senha):
         self.send_keys(self.user_name_field, usuario)
         self.send_keys(self.password_field, senha)
         self.click(self.login_button)  
