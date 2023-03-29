@@ -1,35 +1,121 @@
-# python-web-automation
-Framework de automação de testes web com python
+# Python-web-automation
+Framework de automação de testes web com **Python**.
 
-**Criar ambiente virtul**
-python -m venv venv
+## Tecnologias e padrões utilizados:
 
-**Inicializar ambiente virtual**
-venv\Scripts\Activate.ps1
+- Python
+- Biblioteca Venv
+- Pytest
+- Selenium-webdriver
+- Page Objects
 
-**Erro de permissao do powershell solução**
-https://pt.stackoverflow.com/questions/220078/o-que-significa-o-erro-execu%C3%A7%C3%A3o-de-scripts-foi-desabilitada-neste-sistema
+#
 
-**Erro resolvido com a doc do selenium**
-https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/
+- **Python**
 
-session not created: This version of ChromeDriver only supports Chrome version 83
+  Python é uma linguagem de programação interpretada, de alto nível, dinâmica e de uso geral. Ela suporta múltiplos paradigmas de programação, incluindo orientação a objetos, programação funcional e procedural. Python tem uma sintaxe simples e clara, com tipagem dinâmica e gerenciamento automático de memória. É uma linguagem portável e possui uma grande biblioteca padrão, além de uma ampla comunidade de desenvolvedores. Python é amplamente utilizado em áreas como ciência de dados, desenvolvimento web, automação de tarefas e aprendizado de máquina.
+  
+- **Biblioteca Venv**
 
-**Documentação do xpath**
-https://www.w3schools.com/xml/xpath_intro.asp
+  A biblioteca venv é uma ferramenta do Python para criar ambientes virtuais isolados. Ela permite que você crie um ambiente de desenvolvimento com uma versão específica do Python e instale as bibliotecas necessárias sem interferir no ambiente de desenvolvimento principal. Isso ajuda a evitar conflitos de dependências entre projetos e garante que cada projeto tenha seu próprio ambiente de execução independente.
+  
+- **Pytest**
 
-**Execucao de teste com pytest**
+  O Pytest é um framework de teste de software para a linguagem Python. Ele oferece uma abordagem simples e fácil de usar para escrever, organizar e executar testes automatizados em projetos Python. O Pytest possui uma sintaxe simples e legível que permite escrever testes em formato de funções Python. Além disso, ele oferece uma ampla gama de recursos e plugins para estender a funcionalidade e suportar testes mais complexos, como testes parametrizados e fixtures. O Pytest também possui recursos para executar testes em paralelo, relatórios detalhados de resultados de testes e integração com outras ferramentas de teste e CI/CD. O Pytest é amplamente utilizado na comunidade Python e é considerado uma das melhores opções para testes de software em projetos Python, por sua simplicidade, eficiência e recursos avançados.
+  
+- **Selenium webdriver**
 
-O pytest identifica os arquivos e classes de teste, atraves da palavra reservada **test**, neste caso, ao utilizar o pytest é necessario utilizar este palavra nos metodos de teste e arquivos de teste que forem criados.
+  O Selenium WebDriver é uma ferramenta de automação de testes para aplicações web que permite a escrita de testes automatizados em diferentes linguagens de programação. Ele simula a interação do usuário com o navegador web, permitindo a validação do conteúdo e a execução de ações em elementos da página. É compatível com vários navegadores e amplamente utilizado em testes de integração e de aceitação automatizados para melhorar a qualidade do software.
 
-- Para executar apenas 1 teste simples
+- **Page Objects**
+
+  Page Objects é um padrão de projeto utilizado em testes de software para melhorar a manutenibilidade e legibilidade dos testes automatizados. Ele consiste em mapear cada página da aplicação testada como um objeto, onde seus elementos são encapsulados em métodos e atributos. Assim, os testes passam a ser escritos em um nível de abstração mais alto, tornando-os mais compreensíveis e fáceis de serem mantidos.
+  
+### Links para acesso as documentações das ferramentas:
+
+- Python
+
+> https://docs.python.org/3/
+
+- Biblioteca Venv
+
+> https://docs.python.org/3/library/venv.html
+
+- Pytest
+
+> https://docs.pytest.org/en/7.2.x/
+
+- Selenium webdriver
+
+> https://www.selenium.dev/
+
+## Criando ambiente virtual com biblioteca venv
+
+Para criar o ambiente virtual basta utilizar o seguinte comando:
+
+```python -m venv <nome do ambiente>```
+
+Aguarde alguns instantes até que o ambiente virtual seja criado. Isso deve criar uma pasta chamada com o nome do ambeinte no diretório atual. Para ativar o ambiente virtual, digite o seguinte comando no terminal:
+
+**No Windows:**
+
+```<nome do ambiente>\Scripts\Activate.ps1```
+
+**No mac e Linux**
+
+```source <nome do ambiente>/bin/activate```
+
+ATENÇÃO:
+
+> Ao executar o ambiente virtual no windows pode aparecer um erro de permissão de acesso. Este erro acontece devido algumas politicas de segurança da Microsoft,
+para solucionar o erro basta seguir este link: 
+
+> https://pt.stackoverflow.com/questions/220078/o-que-significa-o-erro-execu%C3%A7%C3%A3o-de-scripts-foi-desabilitada-neste-sistema
+
+## Instalando dependencias do projeto
+
+Antes de executar o projeto, devemos instalar as dependências no nosso ambiente virtual criado. Atenção, uma vez criado o ambiente virtual e instalado as dependências
+necessarias do projeto, estas dependências ficarão disponiveis apenas no ambiente virtual criado. Caso esse ambiente virutal seja deletado, será necessario instalar
+novamente as dependências do projeto.
+
+### Instalando Pytest
+
+Para instalar o Pytest, basta executar este comando no terminal:
+
+> pip install -U pytest
+
+### Instalando Selenium webdriver
+
+Para instalar o Selenium webdriver, basta executar este comando no terminal:
+
+> pip install selenium
+
+Após as instalações das dependencias com sucesso, podemos executar os testes do projeto.
+
+## Execucao dos teste com pytest
+
+O Pytest identifica os arquivos e classes de teste, atraves da palavra reservada **test**, neste caso, ao utilizar o pytest é necessario utilizar este palavra nos metodos de teste e arquivos de teste que forem criados.
+
+- Para executar apenas 1 teste simples:
+
 > pytest <nome do arquivo de teste>
 
-- Para executar 1 teste com um report mais amigavel (Verboso)
+- Para executar 1 teste com um report mais amigavel (Verboso) no terminal, executar o seguinte comando:
+
 > pytest -v <nome do arquivo de teste>
 
 Ao importar o **Pytest** no arquivo de teste, conseguimos utilizar marks para executar e identificar testes especificos. Você pode consultar mais detalhes sobre os marks na seguinte documentação: https://docs.pytest.org/en/7.1.x/example/markers.html
 
 - Para executar testes com marks especificos (tags), podemos utilizar o seguinte comando
+
 > pytest -v -m <nome_da_tag_do_cenario>
-> pytest -v -m buy_two_product
+
+> Ex: pytest -v -m buy_two_product
+
+Caso queira executar todos os testes contidos no projeto, basta executar o comando no terminal:
+
+> Pytest
+
+## Considerações
+
+> Este projeto foi realizado com intuito de estudo sober a linguagem Python, e as tecnologias de automação de testes. 
