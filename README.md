@@ -98,13 +98,13 @@ O Pytest identifica os arquivos e classes de teste, atraves da palavra reservada
 
 - Para executar apenas 1 teste simples:
 
-> pytest <nome do arquivo de teste>
+> pytest <nome_do_arquivo_de_teste>
 
 - Para executar 1 teste com um report mais amigavel (Verboso) no terminal, executar o seguinte comando:
 
-> pytest -v <nome do arquivo de teste>
+> pytest -v <nome_do_arquivo_de_teste>
 
-Ao importar o **Pytest** no arquivo de teste, conseguimos utilizar marks para executar e identificar testes especificos. Você pode consultar mais detalhes sobre os marks na seguinte documentação: https://docs.pytest.org/en/7.1.x/example/markers.html
+Ao importar o **Pytest** no arquivo de teste, conseguimos utilizar **marks** para executar e identificar testes especificos. Você pode consultar mais detalhes sobre os marks na seguinte documentação: https://docs.pytest.org/en/7.1.x/example/markers.html
 
 - Para executar testes com marks especificos (tags), podemos utilizar o seguinte comando
 
@@ -114,7 +114,7 @@ Ao importar o **Pytest** no arquivo de teste, conseguimos utilizar marks para ex
 
 Caso queira executar todos os testes contidos no projeto, basta executar o comando no terminal:
 
-> Pytest
+> pytest
 
 ## Considerações
 
