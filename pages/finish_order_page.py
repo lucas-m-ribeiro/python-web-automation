@@ -14,4 +14,4 @@ class FinishOrderPage(BasePage):
 
     def verify_messge_order(self, texto_esperado):
         texto_encontrado = self.get_text_element(self.message_order)
-        assert texto_encontrado == texto_esperado, f"O texto retornado foi: '{texto_encontrado}', mas era esperado o texto '{text_esperado}'"
+        assert texto_encontrado == texto_esperado, f"O texto retornado foi: '{texto_encontrado}', mas era esperado o texto '{texto_esperado}'"
