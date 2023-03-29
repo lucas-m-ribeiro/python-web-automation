@@ -1,5 +1,4 @@
 import pytest
-import conftest
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from pages.cart_page import CartPage
@@ -17,8 +16,6 @@ class Test_CT04_buy_one_produt:
 
         produto_1 = "Sauce Labs Backpack"
         message = "Thank you for your order!"
-
-        driver = conftest.driver
 
         login_page = LoginPage()
         home_page = HomePage()
