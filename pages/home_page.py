@@ -1,8 +1,8 @@
-from pages.base_page import BasePage
+from core.selenium import Selenium
 import conftest
 from selenium.webdriver.common.by import By
 
-class HomePage(BasePage):
+class HomePage(Selenium):
 
     def __init__(self):
         self.driver = conftest.driver

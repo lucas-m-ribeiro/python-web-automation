@@ -1,8 +1,8 @@
 import conftest
 from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
+from core.selenium import Selenium
 
-class CartPage(BasePage):
+class CartPage(Selenium):
 
     def __init__(self):
         self.driver = conftest.driver

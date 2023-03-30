@@ -1,8 +1,8 @@
 import conftest
 from selenium.webdriver.common.by import By
-from pages.base_page import BasePage
+from core.selenium import Selenium
 
-class OverviewPage(BasePage):
+class OverviewPage(Selenium):
 
     def __init__(self):
         self.driver = conftest.driver
