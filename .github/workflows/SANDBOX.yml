@@ -31,4 +31,4 @@ jobs:
         selenium --version
       
     - name: Execute test
-      run: pytest -v -m .\tests\${{inputs.EXECUTION}}
+      run: pytest -v -m .\tests\${{inputs.execution}}
