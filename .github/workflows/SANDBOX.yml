@@ -1,5 +1,6 @@
-name: Execution test
-on: 
+name: SANDBOX
+
+on:
   workflow_dispatch:
     inputs:
      execution:
@@ -30,4 +31,4 @@ jobs:
         selenium --version
       
     - name: Execute test
-      run: pytest .\tests\${{inputs.EXECUTION}}
+      run: pytest -v -m .\tests\${{inputs.EXECUTION}}
