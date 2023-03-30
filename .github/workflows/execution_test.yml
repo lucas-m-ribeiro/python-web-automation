@@ -1,10 +1,11 @@
 name: Execution test
-on: workflow_dispatch
-inputs:
-  execution:
-    type: string
-    description: Insira o teste que vc quer executar:
-    required: true
+on: 
+  workflow_dispatch:
+    inputs:
+     execution:
+       type: string
+       description: Insira o teste que vc quer executar
+       required: true
     
 jobs:
   test:
