@@ -32,3 +32,4 @@ jobs:
       
     - name: Execute test
       run: pytest -v -m .\tests\${{inputs.execution}}
+      shell: powershell
