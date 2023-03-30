@@ -1,0 +1,33 @@
+name: Execution test
+on: workflow_dispatch
+inputs:
+  EXECUTION:
+    description: Insira o teste que vc quer executar:
+    required: true
+  with:
+  EXECUTION: ${{inputs.EXECUTION}}
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+    - name: Download project
+      uses: actions/checkout@v3
+    
+    - name: Download Python
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install Pytest
+      run: |
+        pip install -U pytest
+        pytest --version
+        
+    - name: Install Selenium  webdriver
+      run: |
+        pip install selenium
+        selenium --version
+      
+    - name: Execute test
+      run: pytest .\tests\${{inputs.EXECUTION}}
+    
