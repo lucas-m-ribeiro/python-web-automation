@@ -2,8 +2,8 @@ name: Execution test
 on: workflow_dispatch
 inputs:
   EXECUTION:
-    description: Insira o teste que vc quer executar:
-    required: true
+  description: Insira o teste que vc quer executar:
+  required: true
   with:
   EXECUTION: ${{inputs.EXECUTION}}
 jobs:
