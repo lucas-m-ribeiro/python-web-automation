@@ -2,6 +2,7 @@ name: Execution test
 on: workflow_dispatch
 inputs:
   EXECUTION:
+    type: string
     description: Insira o teste que vc quer executar:
     required: true
 jobs:
@@ -28,10 +29,3 @@ jobs:
       
     - name: Execute test
       run: pytest .\tests\${{inputs.EXECUTION}}
-with:
-  inputs:
-    EXECUTION:
-    description: Insira o teste que vc quer executar:
-    required: true
-  with:
-  EXECUTION: ${{inputs.EXECUTION}}
