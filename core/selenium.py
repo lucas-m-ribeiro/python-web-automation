@@ -1,10 +1,9 @@
 import conftest
 
-class BasePage:
+class Selenium:
 
     def __init__(self):
         self.driver = conftest.driver
-
 
     def find_element(self, locator):
         return self.driver.find_element(*locator)
