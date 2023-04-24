@@ -30,7 +30,7 @@ class Selenium:
         return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(*locator))
     
     def verify_element_not_exists(self, element):
-        assert len(self.find_element(element)) == 0, f"O elemento '{locator}' foi encontrado na tela, é esperado que ele não exista!"
+        assert len(self.find_element(element)) == 0, f"O elemento '{element}' foi encontrado na tela, é esperado que ele não exista!"
 
     def double_click(self, locator):
         element = self.wait_visible_el(locator)
