@@ -149,8 +149,10 @@ Você pode verificar se o google-chrome esta dentro desta pasta com o seguinte c
 - Após executar estes comandos para verificar se tudo ocorreu de forma correta, você pode executar este comando no terminal:
 
     - ls -l /usr/local/bin/chromedriver
+  
+  Este comando apresentará no terminal as permissões que o binario do chromedriver possuir, de acordo como foi feito nos passos anteriores.
 
-Feito estes passos, o erro que estava sendo apresentado possivelmente foi solucioado e os testes podem ser executados com sucesso.
+Feito estes passos, o erro que estava sendo apresentado possivelmente foi solucionados e os testes podem ser executados com sucesso.
 
 ## Considerações
 
