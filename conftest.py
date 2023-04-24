@@ -1,7 +1,5 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
 driver: webdriver.Remote
@@ -12,10 +10,11 @@ def setup_teardown():
     global driver
 
     chrome_options = Options()
-    chrome_options.binary_location = '/usr/bin/google-chrome-stable'
+    #chrome_options.add_argument('--headless') # para executar os testes em modo headless basta descomentar esta linha
+    chrome_options.add_argument('--no-sandbox') 
+    #chrome_options.binary_location = '/usr/bin/google-chrome'
 
-    #service = Service(executable_path="chromedriver")
-    drive = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
 
     driver.get("https://www.saucedemo.com/")
     driver.maximize_window()
