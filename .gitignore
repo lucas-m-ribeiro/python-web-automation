@@ -1,4 +1,4 @@
-venv/
+ambiente/
 chromedriver
 __pycache__/
 .pytest_cache/
