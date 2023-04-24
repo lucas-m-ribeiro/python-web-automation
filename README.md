@@ -133,7 +133,7 @@ para resolver este problema, siga os passos a seguir:
 - Verificar se os binarios do google-chrome são encontrados dentro da pasta **/usr/bin**, se não for encontrado, é recomendavel instalar o google chrome novamente e adiciionar na pasta. Se for instalado pelo repositorio da distribuição, os binarios devem aparecer automaticamente na pasta.
 Você pode verificar se o google-chrome esta dentro desta pasta com o seguinte comando no terminal:
 
-    >   which google-chrome
+    - which google-chrome
 
 - Apos realizar a verificação do google-chrome, deve-se adicionar o chromedriver dentro do diretorio **usr/bin**, no mesmo local que o google-chrome também estará. Para mover o binario do chromedriver ao diretorio, basta usar o comando:
 
