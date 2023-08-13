@@ -36,7 +36,8 @@ driver: webdriver.Remote
 def setup_teardown():
     # setup
     global driver
-    service = Service(executable_path="/usr/bin/chromedriver")
+    # para executar local com o chromedriver na pasta bin basta adicionar o caminho do chromedriver na pasta bin
+    service = Service(executable_path="chromedriver-linux64/chromedriver")
     webdriver.Chrome(service=service)
 
     driver = webdriver.Chrome()
