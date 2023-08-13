@@ -37,7 +37,7 @@ jobs:
     - name: Install google chrome version 15
       run: |
         sudo apt update
-        sudo apt install google-chrome-stable=115.0.5790.170
+        sudo apt install google-chrome
       shell: bash
         
     - name: Download Python
