@@ -25,7 +25,21 @@ jobs:
         unzip chromedriver-linux64.zip
         cd chromedriver-linux64
         sudo chmod +x chromedriver
-    
+      shell: bash
+
+    - name: Add chrome repository on distro
+      run: |
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb
+        sudo apt-get install -f
+      shell: bash
+
+    - name: Install google chrome version 15
+      run: |
+        sudo apt update
+        sudo apt install google-chrome-stable=115.0.5790.170
+      shell: bash
+        
     - name: Download Python
       uses: actions/setup-python@v4
       with:
