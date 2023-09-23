@@ -157,4 +157,3 @@ Feito estes passos, o erro que estava sendo apresentado possivelmente foi soluci
 ## Considerações
 
 - Este projeto foi realizado com intuito de estudo sober a linguagem Python, e as tecnologias de automação de testes.
-- O projeto pode receber atualizações de acordo com novos módulos que podem ser lançados no curso referente a este projeto.
