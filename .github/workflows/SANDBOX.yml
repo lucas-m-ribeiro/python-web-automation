@@ -41,7 +41,7 @@ jobs:
         python -m venv ambiente-teste
         source ambiente-teste/bin/activate
         pip install -U pytest selenium
-      shell: bash
+      shell: bash -l
 
     - name: Executar testes
       run: |
