@@ -23,7 +23,7 @@ jobs:
 
     - name: Baixar e configurar o Chromedriver
       run: |
-        wget https://chromedriver.storage.googleapis.com/115.0.5790.170/chromedriver_linux64.zip
+        curl -O https://chromedriver.storage.googleapis.com/94.0.4606.41/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
