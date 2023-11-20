@@ -1,74 +1,53 @@
-name: SANDBOX TEST
+name: SANDBOX
 
 on:
   workflow_dispatch:
     inputs:
-     execution:
-       type: string
-       description: Insira o teste que vc quer executar, ou execute todos os teste apenas clicando no botão "RUN WORKFLOW"
-       required: false
-    
+      execution:
+        description: 'Insira o teste que você quer executar ou deixe em branco para executar todos os testes.'
+        required: false
+
 jobs:
-  run-test:
+  run-tests:
     runs-on: ubuntu-latest
     
     steps:
-
-    - name: Download project
+    - name: Checkout do código
       uses: actions/checkout@v3
 
-    - name: Prepare chromedriver
+    - name: Configurar ambiente
       run: |
-        sudo apt install wget
-        sudo apt install unzip
-        wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/115.0.5790.170/linux64/chromedriver-linux64.zip
-        unzip chromedriver-linux64.zip
-        cd chromedriver-linux64
-        sudo chmod +x chromedriver
+        sudo apt-get update
+        sudo apt-get install -y wget unzip
       shell: bash
 
-    - name: Add chrome repository on distro
+    - name: Baixar e configurar o Chromedriver
+      run: |
+        wget https://chromedriver.storage.googleapis.com/115.0.5790.170/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
+      shell: bash
+
+    - name: Instalar o Google Chrome
       run: |
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo dpkg -i google-chrome-stable_current_amd64.deb
         sudo apt-get install -f
       shell: bash
 
-    - name: Install google chrome version 15
-      run: |
-        sudo apt update
-        sudo apt install google-chrome-stable
-      shell: bash
-        
-    - name: Download Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-  
-    - name: Create virtual environment
+    - name: Configurar ambiente virtual e instalar dependências
       run: |
         python -m venv ambiente-teste
         source ambiente-teste/bin/activate
+        pip install -U pytest selenium
       shell: bash
 
-    - name: Install Pytest
+    - name: Executar testes
       run: |
-        pip install -U pytest
-        pytest --version
-      shell: bash
-
-    - name: Install Selenium  webdriver
-      run: |
-        pip install selenium
-      shell: bash
-      
-    - name: Execute test
-      run: |
-        if [[ "${{ inputs.execution }}" == "" ]]
-        then
+        if [ -z "${{ inputs.execution }}" ]; then
           pytest -v tests/
         else
-          pytest -v -m tests/"${{ inputs.execution }}"
+          pytest -v -k "${{ inputs.execution }}"
         fi
       shell: bash
-
