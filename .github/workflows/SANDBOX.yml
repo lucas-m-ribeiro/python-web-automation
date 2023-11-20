@@ -36,13 +36,11 @@ jobs:
         sudo apt-get install -f
       shell: bash
 
-    - name: Configurar ambiente virtual e instalar dependências
+    - name: Instalar dependências
       run: |
-        python -m venv ambiente-teste
-        source ambiente-teste/bin/activate
         pip install -U pytest selenium
-      shell: bash -l
-
+      shell: bash
+      
     - name: Executar testes
       run: |
         if [ -z "${{ inputs.execution }}" ]; then
