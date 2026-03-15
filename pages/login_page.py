@@ -1,6 +1,6 @@
 import conftest
 from selenium.webdriver.common.by import By
-from core.selenium import Selenium
+from core.core import Selenium
 
 class LoginPage(Selenium):
 
